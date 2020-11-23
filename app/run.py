@@ -74,9 +74,32 @@ def index():
     offer_df = offer_count.iloc[:, 4:].sum().sort_values(ascending=False)
     offer_df_counts =  offer_df.values
     offer_df_name =  offer_df.index
+  
     
     # create visuals
     graphs = [
+        # categories break-out
+        {
+            'data': [
+                Bar(
+                    y=categ_counts,
+                    x=categ_names
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Disaster Categories',
+                'yaxis': {
+                    'title': 'Category Count'
+                },
+                'xaxis': {
+                    'tickangle': 45,
+                    'title_standoff': 60
+                },
+                
+            }
+        },
+        
         {
             'data': [
                 Bar(
@@ -108,27 +131,6 @@ def index():
             }
         },
         
-        # categories break-out
-        {
-            'data': [
-                Bar(
-                    y=categ_counts,
-                    x=categ_names
-                )
-            ],
-
-            'layout': {
-                'title': 'Distribution of Disaster Categories',
-                'yaxis': {
-                    'title': 'Category Count'
-                },
-                'xaxis': {
-                    'tickangle': 45,
-                    'title_standoff': 60
-                },
-                
-            }
-        },
         
         # request vs offers distribution plot
         {
