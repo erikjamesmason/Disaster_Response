@@ -1,14 +1,15 @@
 # Disaster Response Pipeline Project
+This Machine Learning Pipeline Project is built to categorize emergency messages, based on training data from emergency messages of varied genres. Project is materialized as a Flask Web App
 
-### Instructions:
-1. Run the following commands in the project's root directory to set up your database and model.
+## Table of Contents
+1. Introduction
+2. Requirements
+3. Project Files
+4. Guidance
+5. Licensing
 
-    - To run ETL pipeline that cleans data and stores in database
-        `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
-    - To run ML pipeline that trains classifier and saves
-        `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
+### Introduction
+As a part of the Data Science Nanodegree from Udacity, this project seeks to display an understanding and utlization of Natural Language Processing within a Machine Learning Pipeline. The context of the dataset is emergency messages (disaster related). The project consists of the data, data wrangling, model buildling and model packaging, and the web app.
+### Requirements
 
-2. Run the following command in the app's directory to run your web app.
-    `python run.py`
-
-3. Go to http://0.0.0.0:3001/
+###
