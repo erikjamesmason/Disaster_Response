@@ -13,6 +13,10 @@ This Machine Learning Pipeline Project is built to categorize emergency messages
 
 ### Introduction
 As a part of the Data Science Nanodegree from Udacity, this project seeks to display an understanding and utlization of Natural Language Processing within a Machine Learning Pipeline. The context of the dataset is emergency messages (disaster related). The project consists of the data, data wrangling, model buildling and model packaging, and the web app.
+
 ### Requirements
 
-###
+### Project Files
+### Guidance
+
+### Licensing
