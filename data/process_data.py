@@ -5,9 +5,14 @@ import sqlalchemy
 
 def load_data(messages_filepath, categories_filepath):
     """
-    Function to load in data from csv and merge on 'id' to
-    prepare for cleaning.
-    requires the messages and categories .csv files located in data directory
+    Function to load in data and merge on 'id' column 
+    
+    Arguments:
+    messages_filepath (filepath to file containing messages data)
+    categories_filepath (filepath to file containing categorical data)
+    
+    Output:
+    df (Dataframe with merged datasets)
     """
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
@@ -15,6 +20,16 @@ def load_data(messages_filepath, categories_filepath):
     return df
 
 def clean_data(df):
+    """
+    Function to clean text data from dataframe
+    
+    Arguments:
+    df (Dataframe with merged datasets)
+    
+    Output:
+    df (Dataframe with cleaned and formatted data)
+    
+    """
     categories = df.categories.str.split(";", expand=True)
     row = categories.iloc[0]
     category_colnames = row.str.split('-').str[0] 
@@ -38,6 +53,17 @@ def clean_data(df):
     return df
 
 def save_data(df, database_filename):
+    """
+    Function to save dataframe to database file (.db)
+    
+    Arguments:
+    df (Dataframe to be saved to database file)
+    database_filename (Filename of database file)
+    
+    Output:
+    None (Result is saved database and table)
+    """
+    
     print('sqlite:///{}'.format(database_filename))
     engine = sqlalchemy.create_engine('sqlite:///{}'.format(database_filename)) 
     db_filename = database_filename.split("/")[-1] # extract file name from \
