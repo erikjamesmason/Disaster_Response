@@ -27,28 +27,31 @@ The Requirements.txt should equip the project for required packages, but general
 
 ### Project Files
 
+```
 Disaster_Response
-│───DR_DS1.png
-│───DR_DS2.png
-│───README.md
-│───requirements.txt 
-│   
-├───app
-│   │───run.py
-│   │   
-│   └───templates
-│       │───go.html
-│       └───master.html
-│           
-├───data
-│   │───disaster_categories.csv
-│   │───disaster_messages.csv
-│   │───Disaster_Response.db
-│   └───process_data.py 
-│                       
-└───models
-    │───classifier.pkl
-    └───train_classifier.py
+│
+├── DR_DS1.png
+├── DR_DS2.png
+├── README.md
+├── requirements.txt
+├── app/
+│   ├── template/
+│   │   ├── master.html  # main page
+│   │   └── go.html  # classification page
+│   │
+│   └── run.py  # runs webapp
+│
+├── data/
+│   ├── disaster_categories.csv  # data 
+│   ├── disaster_messages.csv  # data 
+│   ├── process_data.py # data processing script
+│   └── Disaster_Response.db   # Output Database from SQLAlchemy
+│
+└──models/
+    ├── train_classifier.py
+    └──classifier.pkl  # Pickle file with saved model
+
+```
 
 ### Guidance
 
