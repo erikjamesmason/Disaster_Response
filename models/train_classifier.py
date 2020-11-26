@@ -32,6 +32,19 @@ from sklearn.datasets import make_multilabel_classification
 
 
 def load_data(database_filename):
+    """
+    Loads data from Database (.db)
+    
+    Arguments:
+    database_filename (SQL Database file)
+    
+    Output:
+    
+    X (Dataframe from "messages" column)
+    y (Dataframe from categorical columns)
+    category_names (list from categorical columns)
+    """
+    
     print('sqlite:///{}'.format(database_filename))
     engine = create_engine('sqlite:///{}'.format(database_filename))
     db_filename = database_filename.split("/")[-1]
@@ -45,6 +58,15 @@ def load_data(database_filename):
     return X, y, category_names
 
 def tokenize(text):
+    """
+    Tokenizer for text-based data
+    
+    Arguments:
+    text (string type data)
+    
+    Output:
+    words (list type containing the processed text)
+    """
     
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
@@ -58,6 +80,15 @@ def tokenize(text):
 
 
 def build_model():
+    """
+    Function to build model using Pipeline and GridSearchCV
+    
+    Argument:
+    None
+    
+    Output:
+    model (Built model for classification)
+    """
     
     pipeline = Pipeline([
             ('vect', CountVectorizer(tokenizer=tokenize, max_df=1.0)),
@@ -79,12 +110,13 @@ def build_model():
 
 def evaluate_model(model, X_test, y_test, category_names):
     """
-    Shows model's performance on test data
-    Args:
-    model: trained model
-    X_test: Test features
-    Y_test: Test targets
-    category_names: Target labels
+    Displays and helps evaluate model's performance
+    
+    Argument:
+    model (trained model)
+    X_test (Test messages from dataframe)
+    y_test (Test categorical columns values from dataframe)
+    category_names (list type of categorical columns)
     """
 
     # predict
@@ -108,6 +140,14 @@ def evaluate_model(model, X_test, y_test, category_names):
 
 
 def save_model(model, model_filepath):
+    """
+    Uses Pickle to save model as .pkl file
+    
+    Arguments:
+    model (trained model)
+    model_filepath (filepath for saved model)
+    """
+    
     pickle.dump(model.best_estimator_, open(model_filepath, 'wb'))
 
 
