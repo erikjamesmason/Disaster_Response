@@ -34,7 +34,9 @@ from sklearn.datasets import make_multilabel_classification
 def load_data(database_filename):
     print('sqlite:///{}'.format(database_filename))
     engine = create_engine('sqlite:///{}'.format(database_filename))
-    df = pd.read_sql_table('Categorized_Messages', engine)
+    db_filename = database_filename.split("/")[-1]
+    table_name = db_filename.split(".")[0]
+    df = pd.read_sql_table(table_name, engine)
     print(df.head(5))
     X = df.message
     y = df.iloc[:, 4:]

@@ -9,8 +9,8 @@ def load_data(messages_filepath, categories_filepath):
     prepare for cleaning.
     requires the messages and categories .csv files located in data directory
     """
-    messages = pd.read_csv('disaster_messages.csv')
-    categories = pd.read_csv('disaster_categories.csv')
+    messages = pd.read_csv(messages_filepath)
+    categories = pd.read_csv(categories_filepath)
     df = messages.merge(categories, on='id')
     return df
 
@@ -39,8 +39,13 @@ def clean_data(df):
 
 def save_data(df, database_filename):
     print('sqlite:///{}'.format(database_filename))
-    engine = sqlalchemy.create_engine('sqlite:///' + database_filename)
-    df.to_sql('Categorized_Messages', engine, if_exists='replace', index=False) 
+    engine = sqlalchemy.create_engine('sqlite:///{}'.format(database_filename)) 
+    db_filename = database_filename.split("/")[-1] # extract file name from \
+    print(f'database file name: {db_filename}') # the file path
+    table_name = db_filename.split(".")[0]
+    print(f'table name: {table_name}')
+    df.to_sql(table_name, engine, index=False, if_exists = 'replace')
+    # df.to_sql('Categorized_Messages', engine, if_exists='replace', index=False) 
 
 
 def main():

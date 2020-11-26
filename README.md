@@ -19,4 +19,8 @@ As a part of the Data Science Nanodegree from Udacity, this project seeks to dis
 ### Project Files
 ### Guidance
 
+python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/Disaster_Response.db
+
+python models/train_classifier.py data/Disaster_Response.db models/classifier.pkl
+
 ### Licensing
