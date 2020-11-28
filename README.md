@@ -70,7 +70,7 @@ python data/process_data.py data/disaster_messages.csv data/disaster_categories.
 ###### ML Pipeline: 
 python models/train_classifier.py data/Disaster_Response.db models/classifier.pkl
 ###### initiate and run webapp 
-python run.py
+python app/run.py
 ###### Web App should be located at your local host - http://0.0.0.0:3001/
 
 ### Licensing
