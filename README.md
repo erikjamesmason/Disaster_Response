@@ -58,7 +58,7 @@ Disaster_Response
 ##### This project utilizes Python 3.8
 ##### Create Virtual environment
 ###### While you may other have methods to create a virtual environment, I found success with this approach:
-1. `python3 -m venv test_env`
+1. `python3 -m venv dr_env`
 2. `dr_env\scripts\activate`
 3. `pip3 install -r requirements`
 
