@@ -60,7 +60,7 @@ Disaster_Response
 ###### While you may other have methods to create a virtual environment, I found success with this approach:
 1. `python3 -m venv dr_env`
 2. `dr_env\scripts\activate`
-3. `pip3 install -r requirements`
+3. `pip3 install -r requirements.txt`
 
 ##### From the project directory, run these commands
 ###### The script is designed to be ran dynamically, but you may need to experiment between changing directories
